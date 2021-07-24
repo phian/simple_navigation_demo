@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:simple_navigation_demo/routing/routes.dart';
-import 'package:simple_navigation_demo/ui/second_screen.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage();
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -11,23 +12,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("This is the first screen"),
+      body: const Center(
+        child: const Text(
+          "This is the first screen",
+          style: const TextStyle(
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return SecondScreen();
-              },
-            ),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) {
+          //       return SecondScreen();
+          //     },
+          //   ),
+          // );
 
           Navigator.pushNamed(context, Routes.secondScreenRoute);
         },
-        child: Icon(Icons.arrow_forward),
+        child: const Icon(Icons.arrow_forward),
       ),
     );
   }

@@ -8,7 +8,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator().onGenerateRoute,
-      home: MyHomePage(),
+      home: const MyHomePage(),
     ),
   );
 }

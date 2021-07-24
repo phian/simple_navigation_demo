@@ -18,20 +18,33 @@ class _SecondScreenState extends State<SecondScreen> {
             body: Consumer<TodoCache>(
               builder: (_, cache, __) {
                 return ListView.separated(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: EdgeInsets.symmetric(vertical: 24.0),
                   physics: AlwaysScrollableScrollPhysics(
                     parent: BouncingScrollPhysics(),
                   ),
                   itemBuilder: (_, index) {
                     return Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(cache.list[index].title),
-                        Text(cache.list[index].description),
+                        Text(
+                          cache.list[index].title,
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 10.0),
+                        Text(
+                          cache.list[index].description,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ],
                     );
                   },
                   separatorBuilder: (_, index) {
-                    return SizedBox(height: 20.0);
+                    return const SizedBox(height: 30.0);
                   },
                   itemCount: cache.list.length,
                 );
@@ -43,7 +56,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   Navigator.of(context).pop();
                 }
               },
-              child: Icon(Icons.arrow_back),
+              child: const Icon(Icons.arrow_back),
             ),
           ),
         );
