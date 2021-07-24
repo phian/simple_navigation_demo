@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:simple_navigation_demo/models/todo-_model.dart';
+import 'package:simple_navigation_demo/models/todo_model.dart';
 
 class TodoCache {
   var _index = -1;
