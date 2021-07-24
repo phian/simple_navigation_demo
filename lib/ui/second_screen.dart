@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_navigation_demo/services/todo_cache.dart';
+import 'package:simple_navigation_demo/widgets/todo_content_widget.dart';
 
 class SecondScreen extends StatefulWidget {
   @override
@@ -23,24 +24,9 @@ class _SecondScreenState extends State<SecondScreen> {
                     parent: BouncingScrollPhysics(),
                   ),
                   itemBuilder: (_, index) {
-                    return Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          cache.list[index].title,
-                          style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 10.0),
-                        Text(
-                          cache.list[index].description,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ],
+                    return TodoContentWidget(
+                      title: cache.list[index].title,
+                      description: cache.list[index].description,
                     );
                   },
                   separatorBuilder: (_, index) {
